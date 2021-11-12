@@ -72,6 +72,9 @@ $(function () {
       });
     },
     searchProducts(searchTerm) {
+      if ($("#gsearch").length) {
+        $("#gsearch").val(searchTerm);
+      }
       let aggregations = this.createAggregation();
       let refined_by = this.createRefinedBy();
       $.ajax({

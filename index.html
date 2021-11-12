@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="css/style-search.css" rel="stylesheet">
+    <style>
+        .col-md-3 h4 {
+            height: 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,11 +34,49 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
+    
+    <div class="container-fluid mt-5" id="product-suggester">
+        <div class="row height d-flex justify-content-left align-items-top">
+            <div class="col-md-3">
+                <h4>Autocomplete (Prefix based)</h4>
+                <div class="form"> <i class="fa fa-search"></i>
+                    <input type="text" id="gsearch1" class="form-control form-input ui-autocomplete-input"
+                        placeholder="Search anything..." autocomplete="off">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h4>Search (Multi match & Prefix based)</h4>
+                <div class="form"> <i class="fa fa-search"></i>
+                    <input type="text" id="gsearch2" class="form-control form-input ui-autocomplete-input"
+                        placeholder="Search anything..." autocomplete="off">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h4>Suggester (Prefix based)</h4>
+                <div class="form"> <i class="fa fa-search"></i>
+                    <input type="text" id="gsearch3" class="form-control form-input ui-autocomplete-input"
+                        placeholder="Search anything..." autocomplete="off">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h4>Suggester (Prefix based + Boost + itemcode)</h4>
+                <div class="form"> <i class="fa fa-search"></i>
+                    <input type="text" id="gsearch4" class="form-control form-input ui-autocomplete-input"
+                        placeholder="Search anything..." autocomplete="off">
+                </div>
+            </div>
+            <div class="col-md-12 text-center pt-5">
+                <button class="btn btn-primary btn-lg mt-5" onclick="switchSearch()">Search Product</button>
+            </div>
+        </div>
+    </div>
+    <div id="product-search" style="display: none;">
     <!-- Hero Section Begin -->
     <section class="hero hero-normal mt-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
+                    <button class="btn btn-primary btn-lg mt-5" onclick="switchSearch()">Back to Search</button>
                     <div class="hero__categories">
                         <ul>
                             <li><a href="#">Category 1</a></li>
@@ -96,7 +140,7 @@
         </div>
     </section>
     <!-- Product Section End -->
-
+</div>
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -107,7 +151,14 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/script.js"></script>
-
+    <script src="js/script-search.js"></script>
+    <script>
+        function switchSearch(){
+            $('#product-search').toggle()
+            $('#product-suggester').toggle();
+            $(".ui-autocomplete").css("display", "none!important");
+        }
+    </script>
 </body>
 
 </html>
