@@ -255,7 +255,7 @@ $(function () {
                   },
                   field_value_factor: {
                     field: "rank",
-                    factor: 3,
+                    factor: 2,
                     modifier: "sqrt",
                     missing: 1,
                   },
@@ -293,7 +293,7 @@ $(function () {
       success: function (res) {
         response(
           res.data.hits.hits.map((itm) => {
-            return `${itm._source.search_term}`;
+            return `${itm._source.search_term} (${itm._source.rank || "0"})`;
           })
         );
       },
